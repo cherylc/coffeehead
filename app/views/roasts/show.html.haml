@@ -2,7 +2,7 @@
 
 %p
   %b Business:
-  = @roast.business_id
+  = link_to @roast.business.name, business_path(@roast.business)
 %p
   %b Name:
   = @roast.name
