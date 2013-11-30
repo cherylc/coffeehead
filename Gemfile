@@ -8,9 +8,11 @@ gem 'activerecord-postgresql-adapter'
 gem 'jquery-rails'
 
 group :development, :production do
+  gem 'foreman'
+  gem 'formtastic'
   gem 'haml'
   gem 'haml-rails'
-  gem 'formtastic'
+  gem 'puma'
 end
 
 group :assets do
