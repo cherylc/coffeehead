@@ -1,0 +1,15 @@
+= semantic_form_for @roast do |f|
+  - if @roast.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@roast.errors.count, "error")} prohibited this roast from being saved:"
+      %ul
+        - @roast.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs name: "Basic" do
+    = f.input :business
+    = f.input :name
+    = f.input :blend_type, as: :select, collection: ["Espresso", "Pour Over"]
+
+  = f.actions do
+    = f.action :submit, :as => :button

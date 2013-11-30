@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Business:
+  = link_to @roast.business.name, business_path(@roast.business)
+%p
+  %b Name:
+  = @roast.name
+%p
+  %b Blend type:
+  = @roast.blend_type
+
+= link_to 'Edit', edit_roast_path(@roast)
+\|
+= link_to 'Back', roasts_path
