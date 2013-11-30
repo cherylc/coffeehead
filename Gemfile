@@ -10,6 +10,7 @@ gem 'jquery-rails'
 group :development, :production do
   gem 'haml'
   gem 'haml-rails'
+  gem 'formtastic'
 end
 
 group :assets do
