@@ -3,4 +3,6 @@ class Business < ActiveRecord::Base
 
   validates :name,    presence: true, length: {maximum: 150}
   validates :website,                 length: {maximum: 250}
+
+  has_many :roasts
 end

@@ -1,0 +1,23 @@
+%h1 Listing roasts
+
+%table
+  %tr
+    %th Business
+    %th Name
+    %th Blend type
+    %th
+    %th
+    %th
+
+  - @roasts.each do |roast|
+    %tr
+      %td= roast.business_id
+      %td= roast.name
+      %td= roast.blend_type
+      %td= link_to 'Show', roast
+      %td= link_to 'Edit', edit_roast_path(roast)
+      %td= link_to 'Destroy', roast, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Roast', new_roast_path
