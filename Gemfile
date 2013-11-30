@@ -8,6 +8,7 @@ gem 'activerecord-postgresql-adapter'
 gem 'jquery-rails'
 
 group :development, :production do
+  gem 'cocoon'
   gem 'foreman'
   gem 'formtastic'
   gem 'haml'
