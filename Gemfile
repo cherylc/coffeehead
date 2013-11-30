@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'haml'
+
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
 
