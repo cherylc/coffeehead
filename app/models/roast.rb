@@ -6,7 +6,9 @@ class Roast < ActiveRecord::Base
   validates :blend_type,  presence: true, length: {maximum: 50}
 
   belongs_to :business
-  has_many :notes, class_name: "RoastNote"
+  has_many :notes, class_name: 'RoastNote'
 
   accepts_nested_attributes_for :notes, :reject_if => :all_blank, :allow_destroy => true
+
+  has_paper_trail
 end

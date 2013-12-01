@@ -14,9 +14,11 @@ group :development do
 end
 
 group :development, :production do
+  gem 'cancan'
   gem 'foreman'
   gem 'haml'
   gem 'haml-rails'
+  gem 'paper_trail'
   gem 'puma'
   gem 'rails_admin'
 end

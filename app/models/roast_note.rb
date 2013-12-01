@@ -5,9 +5,8 @@ class RoastNote < ActiveRecord::Base
   validates :roast_id, presence: true
   validates :content,  presence: true
 
-  after_initialize do |roast_note|
-    roast_note.user_id = 0
-  end
-
   belongs_to :roast
+  belongs_to :user
+
+  has_paper_trail
 end

@@ -5,4 +5,6 @@ class Business < ActiveRecord::Base
   validates :website,                 length: {maximum: 250}
 
   has_many :roasts
+
+  has_paper_trail
 end
