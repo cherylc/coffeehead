@@ -1,6 +1,5 @@
 Coffeehead::Application.routes.draw do
-  resources :roasts
+  devise_for :users
 
-
-  resources :businesses
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 end
