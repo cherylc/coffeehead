@@ -11,7 +11,7 @@ class Ability
     elsif user.editor?
       can :access, :rails_admin
       can :dashboard
-      can :read, [Business]
+      can :read, [Business, Location]
       can :manage, [Roast, RoastNote]
     elsif user.reader?
       can :read, :all
