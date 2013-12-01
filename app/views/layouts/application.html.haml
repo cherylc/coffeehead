@@ -1,0 +1,22 @@
+!!! 5
+%html.no-js{:lang => "en"}
+
+  %head
+    %meta{:charset => "utf-8"}
+    %title Coffeehead
+
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}
+
+    = stylesheet_link_tag :application, media: :all
+    = csrf_meta_tags
+
+%body
+
+  %header
+
+  .container
+    = yield
+
+  = javascript_include_tag :application
