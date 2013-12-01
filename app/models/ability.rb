@@ -5,10 +5,14 @@ class Ability
     user ||= User.new
 
     if user.admin?
+      can :access, :rails_admin
       can :manage, :all
+      can :dashboard
     elsif user.editor?
-      can :manage, :roasts
-      can :manage, :roast_notes
+      can :access, :rails_admin
+      can :dashboard
+      can :read, [Business]
+      can :manage, [Roast, RoastNote]
     elsif user.reader?
       can :read, :all
     end
