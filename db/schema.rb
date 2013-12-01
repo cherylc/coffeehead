@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131201220535) do
+ActiveRecord::Schema.define(:version => 20131201230248) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name",       :limit => 150, :null => false
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(:version => 20131201220535) do
   end
 
   add_index "businesses", ["name"], :name => "index_businesses_on_name"
+
+  create_table "locations", :force => true do |t|
+    t.integer  "business_id",                 :null => false
+    t.string   "street",       :limit => 100, :null => false
+    t.string   "street2",      :limit => 100
+    t.string   "city",         :limit => 50,  :null => false
+    t.string   "state",        :limit => 2,   :null => false
+    t.string   "postal_code",  :limit => 10,  :null => false
+    t.string   "phone",        :limit => 15
+    t.string   "neighborhood", :limit => 100, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "locations", ["business_id"], :name => "index_locations_on_business_id"
+  add_index "locations", ["neighborhood"], :name => "index_locations_on_neighborhood"
+  add_index "locations", ["postal_code"], :name => "index_locations_on_postal_code"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -41,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20131201220535) do
     t.text     "content",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "roasted_at", :null => false
   end
 
   add_index "roast_notes", ["roast_id"], :name => "index_roast_notes_on_roast_id"
