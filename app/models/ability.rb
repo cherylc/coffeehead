@@ -6,7 +6,10 @@ class Ability
 
     if user.admin?
       can :manage, :all
-    else
+    elsif user.editor?
+      can :manage, :roasts
+      can :manage, :roast_notes
+    elsif user.reader?
       can :read, :all
     end
   end

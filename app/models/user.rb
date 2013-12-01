@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def reader?
+    profile.blank? || profile == "reader"
+  end
+
+  def editor?
+    profile == "editor"
+  end
+
   def admin?
     profile == "admin"
   end
