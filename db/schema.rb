@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131130201045) do
+ActiveRecord::Schema.define(:version => 20131201190849) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name",       :limit => 150, :null => false
@@ -21,6 +21,30 @@ ActiveRecord::Schema.define(:version => 20131130201045) do
   end
 
   add_index "businesses", ["name"], :name => "index_businesses_on_name"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "roast_notes", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "roast_id",   :null => false
+    t.text     "content",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "roast_notes", ["roast_id"], :name => "index_roast_notes_on_roast_id"
+  add_index "roast_notes", ["user_id"], :name => "index_roast_notes_on_user_id"
 
   create_table "roasts", :force => true do |t|
     t.integer  "business_id",                :null => false
@@ -32,5 +56,23 @@ ActiveRecord::Schema.define(:version => 20131130201045) do
 
   add_index "roasts", ["blend_type"], :name => "index_roasts_on_blend_type"
   add_index "roasts", ["business_id"], :name => "index_roasts_on_business_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

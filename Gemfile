@@ -7,12 +7,18 @@ gem 'activerecord-postgresql-adapter'
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'pry-coolline'
+  gem 'pry-doc'
+  gem 'pry-rails'
+end
+
 group :development, :production do
   gem 'foreman'
-  gem 'formtastic'
   gem 'haml'
   gem 'haml-rails'
   gem 'puma'
+  gem 'rails_admin'
 end
 
 group :assets do
@@ -25,3 +31,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
+
+gem "devise"
