@@ -14,8 +14,10 @@ Coffeehead::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
+  config.assets.enabled = true
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.initialized_on_precompile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
