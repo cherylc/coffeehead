@@ -1,9 +1,10 @@
 class RoastNote < ActiveRecord::Base
-  attr_accessible :content, :roast_id, :user_id, :updated_at
+  attr_accessible :content, :roast_id, :user_id, :roasted_at
 
-  validates :user_id,  presence: true
-  validates :roast_id, presence: true
-  validates :content,  presence: true
+  validates :user_id,    presence: true
+  validates :roast_id,   presence: true
+  validates :content,    presence: true
+  validates :roasted_at, presence: true
 
   belongs_to :roast
   belongs_to :user
