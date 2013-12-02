@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131201230248) do
+ActiveRecord::Schema.define(:version => 20131202000924) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name",       :limit => 150, :null => false
@@ -65,11 +65,12 @@ ActiveRecord::Schema.define(:version => 20131201230248) do
   add_index "roast_notes", ["user_id"], :name => "index_roast_notes_on_user_id"
 
   create_table "roasts", :force => true do |t|
-    t.integer  "business_id",                :null => false
-    t.string   "name",        :limit => 150, :null => false
-    t.string   "blend_type",  :limit => 50,  :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "business_id",                 :null => false
+    t.string   "name",         :limit => 150, :null => false
+    t.string   "blend_type",   :limit => 50,  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "purchase_url"
   end
 
   add_index "roasts", ["blend_type"], :name => "index_roasts_on_blend_type"
