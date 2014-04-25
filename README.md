@@ -1,4 +1,4 @@
-== Welcome to Coffee Head
+## Tea, coffee, water, beer, wheat, ..
 
-A journal of amazing cups of coffee and roasts in New York. 
-
+a mixture of everything. fantastic. whatever drink you like, enjoy it!
+btw, technically wheat is not a drink.
